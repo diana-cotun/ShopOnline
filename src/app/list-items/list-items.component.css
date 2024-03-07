@@ -1,0 +1,5 @@
+.card-item {
+  display: flex ;
+  width: 300px;
+  margin: 16px;
+}

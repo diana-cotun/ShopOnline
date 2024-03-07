@@ -1,0 +1,45 @@
+
+<mat-card *ngIf="viewType == 'login' " class = "card-container" [formGroup] = "authForm!">
+
+  <mat-card-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Placeholder" type="email" formControlName = "email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Placeholder" type="password" formControlName = "password">
+    </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+    <button mat-raised-button color="primary" (click)="onSetViewType('register')">Create account?</button>
+
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card *ngIf="viewType == 'register'" class = "card-container" [formGroup] = "authForm!">
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>User name</mat-label>
+      <input matInput placeholder="Placeholder" formControlName = "username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Placeholder" type="email" formControlName = "email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Placeholder" type="password" formControlName = "password">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm password</mat-label>
+      <input matInput placeholder="Placeholder" type="password" formControlName = "confirmPassword">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onRegister()">Create Account</button>
+    <button mat-raised-button color="primary" (click)="onSetViewType('login')">Back to login</button>
+
+  </mat-card-content>
+</mat-card>
