@@ -1,21 +1,21 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="drawer-menu" mode="side">
-    <mat-card class="card-item-menu">
+    <mat-card class="card-item-menu" (click)="onHome()">
       <mat-card-content>
         <p>
           Home
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-card class="card-item-menu">
+    <mat-card class="card-item-menu" (click)="onDashboard()">
       <mat-card-content>
         <p>
           Admin
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-card class="card-item-menu">
+    <mat-card class="card-item-menu" (click)="onLogout()">
       <mat-card-content>
         <p>
           Logout
@@ -34,9 +34,8 @@
       <button mat-icon-button>
         <mat-icon>favorite</mat-icon>
       </button>
-      <button mat-icon-button>
-        <mat-icon>share</mat-icon>
-      </button>
+      <app-cart-button>
+      </app-cart-button>
     </mat-toolbar>
 
     <app-list-items showBuyButton="true">

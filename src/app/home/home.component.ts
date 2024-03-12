@@ -11,6 +11,8 @@ import {Item} from "../models/item.model";
 import {AddUpdateItemComponent} from "../add-update-item/add-update-item.component";
 import {MatDrawer, MatDrawerContainer} from "@angular/material/sidenav";
 import {MatToolbar} from "@angular/material/toolbar";
+import {Router} from "@angular/router";
+import {CartButtonComponent} from "../cart-button/cart-button.component";
 
 @Component({
   selector: 'java64-home',
@@ -18,17 +20,28 @@ import {MatToolbar} from "@angular/material/toolbar";
   imports: [
     // MatCard,
     // MatCardContent
-    MatCardModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButton, ReactiveFormsModule, ListItemsComponent, AddUpdateItemComponent, MatDrawer, MatDrawerContainer, MatToolbar, MatIconButton
+    MatCardModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButton, ReactiveFormsModule, ListItemsComponent, AddUpdateItemComponent, MatDrawer, MatDrawerContainer, MatToolbar, MatIconButton, CartButtonComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private router: Router) {
     this.itemService.read();
   }
 
+  onDashboard() {
+    this.router.navigate(["/", "admin"])
+  }
+
+  onLogout() {
+    this.router.navigate(["/", "auth"])
+  }
+
+  onHome() {
+    this.router.navigate(["/", "home"])
+  }
 
 
 }

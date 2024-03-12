@@ -4,6 +4,7 @@ import {MatCard, MatCardContent} from "@angular/material/card";
 import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {ItemService} from "../services/item.service";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-list-items',
@@ -22,21 +23,21 @@ export class ListItemsComponent {
 
   // @Output ne ajuta sa definim un eveniment prin care trimitem datele din list-items in pagina de home/dashboard
   @Output() updateDataEvent: EventEmitter<Item> = new EventEmitter<Item>();
-  itemsList : Array<Item> = [];
+  itemsList: Array<Item> = [];
   // ascunde botoanele de update si delete cand suntem pe pg de home si afiseaza butonul de buy
   @Input({transform: booleanAttribute, alias: "showBuyButton"}) showBuyButton: boolean = true;
 
-  constructor(private itemService : ItemService) {
-    this.itemService.getItemsList().subscribe((itemsListFromService : Array<Item>) => {
+  constructor(private itemService: ItemService, private cartService: CartService) {
+    this.itemService.getItemsList().subscribe((itemsListFromService: Array<Item>) => {
       console.log("new data")
       this.itemsList = itemsListFromService;
     })
     console.log(this.itemsList);
   }
 
-  onDelete(item : Item) {
+  onDelete(item: Item) {
     console.log(item);
-    this.itemService.delete(item.id).subscribe((response : any) => {
+    this.itemService.delete(item.id).subscribe((response: any) => {
       console.log(response);
       // this.itemService.read();
     })
@@ -50,7 +51,7 @@ export class ListItemsComponent {
 
   onBuy(item: Item) {
     console.log(item);
-
+    this.cartService.addToCart(item);
   }
 
 }

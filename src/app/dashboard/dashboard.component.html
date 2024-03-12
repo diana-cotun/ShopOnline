@@ -1,9 +1,51 @@
-<app-add-update-item [selectedItem]="item">
 
-</app-add-update-item>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="drawer-menu" mode="side">
+    <mat-card class="card-item-menu" (click)="onHome()">
+      <mat-card-content>
+        <p>
+          Home
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-item-menu" (click)="onDashboard()">
+      <mat-card-content>
+        <p>
+          Admin
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-item-menu" (click)="onLogout()">
+      <mat-card-content>
+        <p>
+          Logout
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer>
 
-<!--$event reprezinta continutul evenimentului primit-->
-<!--showBuyButton="false" = proprietate cu valoare statica-->
-<app-list-items showBuyButton="false" (updateDataEvent)="onReceiveItemFromListItems($event)">
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
 
-</app-list-items>
+    <app-add-update-item [selectedItem]="item">
+    </app-add-update-item>
+
+    <!--$event reprezinta continutul evenimentului primit-->
+    <!--showBuyButton="false" = proprietate cu valoare statica-->
+    <app-list-items showBuyButton="false" (updateDataEvent)="onReceiveItemFromListItems($event)">
+    </app-list-items>
+  </div>
+
+</mat-drawer-container>
