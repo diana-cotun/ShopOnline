@@ -1,0 +1,24 @@
+
+<mat-card class = "card-container" [formGroup]="itemForm" >
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Placeholder" formControlName = "title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Placeholder" formControlName = "description">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image Url</mat-label>
+      <input matInput placeholder="Placeholder" formControlName = "imageUrl">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Placeholder" formControlName = "price">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+
+  </mat-card-content>
+</mat-card>

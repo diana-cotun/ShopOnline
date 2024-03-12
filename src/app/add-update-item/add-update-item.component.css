@@ -1,0 +1,4 @@
+.card-container {
+  display : table-caption;
+  margin: 15px;
+}

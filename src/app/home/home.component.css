@@ -1,3 +1,23 @@
-.card-container {
-  display : table-caption;
+
+.example-sidenav-content {
+
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
+
+.drawer-menu {
+  padding: 20px;
+  width: 200px;
+
+}
+
+.card-item-menu {
+  margin-top: 16px;
+  background-color: red;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+

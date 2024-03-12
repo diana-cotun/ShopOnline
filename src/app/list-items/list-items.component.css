@@ -1,5 +1,7 @@
 .card-item {
-  display: flex ;
+  display: inline-block;
   width: 300px;
-  margin: 16px;
+  margin: 10px;
 }
+
+

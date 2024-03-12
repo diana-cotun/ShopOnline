@@ -1,3 +1,9 @@
-<p>dashboard works!</p>
-<app-auth></app-auth>
-<java64-home></java64-home>
+<app-add-update-item [selectedItem]="item">
+
+</app-add-update-item>
+
+<!--$event reprezinta continutul evenimentului primit-->
+<!--showBuyButton="false" = proprietate cu valoare statica-->
+<app-list-items showBuyButton="false" (updateDataEvent)="onReceiveItemFromListItems($event)">
+
+</app-list-items>

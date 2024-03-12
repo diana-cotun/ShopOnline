@@ -1,9 +1,11 @@
 <mat-card *ngFor="let item of itemsList" class="card-item">
-  <mat-card-content>
+  <mat-card-content class="card-content">
     <p>Title: {{item.title}}</p>
     <p>Description: {{item.description}}</p>
     <p>Image: {{item.imageUrl}}</p>
     <p>Price: {{item.price}}</p>
-    <button mat-raised-button color="primary" (click)="onDelete(item)">Delete</button>
+    <button mat-raised-button color="primary" *ngIf="showBuyButton == false" (click)="onDelete(item)">Delete</button>
+    <button mat-raised-button color="primary" *ngIf="showBuyButton == false" (click)="onUpdate(item)">Update</button>
+    <button mat-raised-button color="primary" *ngIf="showBuyButton == true" (click)="onBuy(item)">Buy</button>
   </mat-card-content>
 </mat-card>

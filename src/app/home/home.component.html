@@ -1,28 +1,51 @@
 
-<mat-card class = "card-container" [formGroup]="itemForm" >
-  <mat-card-content>
-    <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput placeholder="Placeholder" formControlName = "title">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <input matInput placeholder="Placeholder" formControlName = "description">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Image Url</mat-label>
-      <input matInput placeholder="Placeholder" formControlName = "imageUrl">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Price</mat-label>
-      <input matInput placeholder="Placeholder" formControlName = "price">
-    </mat-form-field>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="drawer-menu" mode="side">
+    <mat-card class="card-item-menu">
+      <mat-card-content>
+        <p>
+          Home
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-item-menu">
+      <mat-card-content>
+        <p>
+          Admin
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-item-menu">
+      <mat-card-content>
+        <p>
+          Logout
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer>
 
-    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Shop online</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
 
-  </mat-card-content>
-</mat-card>
+    <app-list-items showBuyButton="true">
+    </app-list-items>
+  </div>
 
-<app-list-items>
+</mat-drawer-container>
 
-</app-list-items>
+
+<!--adaugare in cosul de produse, plasare comanda, logare client/ admin-->
+
+<!--@NgModule ????,  -->
